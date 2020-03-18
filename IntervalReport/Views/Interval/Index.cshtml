@@ -1,0 +1,64 @@
+﻿@model IEnumerable<IntervalReport.Models.IntervalResponse>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Index</h2>
+<p>
+    <input id="btnDisplay" value="View Interval Data" type="button" onClick="showHideDiv('divData')" />
+</p>
+<div id="divData" style="display:none">
+    <br><br>
+    <table class="table" id="tbl_Data">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeliveryPoint)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeSlot)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SlotVal)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryPoint)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeSlot)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SlotVal)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+			function showHideDiv(ele) {
+				var srcElement = document.getElementById(ele);
+				if (srcElement != null) {
+					if (srcElement.style.display == "block") {
+						srcElement.style.display = 'none';
+					}
+					else {
+						srcElement.style.display = 'block';
+					}
+					return false;
+				}
+			}
+</script>
