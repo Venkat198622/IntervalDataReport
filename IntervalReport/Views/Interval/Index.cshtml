@@ -48,15 +48,23 @@
         </tbody>
     </table>
 </div>
+
+<div id="divDonload" style="display:none">
+    <form asp-controller="Interval" method="post">
+        <input id="btnDownload" value="Download Interval Data in Excel" type="submit" formaction="DownloadReportFromTemplate" />
+    </form>
+</div>
 <script type="text/javascript">
 			function showHideDiv(ele) {
-				var srcElement = document.getElementById(ele);
+                var srcElement = document.getElementById(ele);
+                var divDonloadElement = document.getElementById('divDonload');
 				if (srcElement != null) {
 					if (srcElement.style.display == "block") {
 						srcElement.style.display = 'none';
 					}
 					else {
-						srcElement.style.display = 'block';
+                        srcElement.style.display = 'block';
+                        divDonloadElement.style.display = 'block';
 					}
 					return false;
 				}
